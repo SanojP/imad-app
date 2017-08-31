@@ -5,11 +5,69 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne = {
+  title: 'Article One | SanojP',
+  heading: 'Article One',
+  content:` <p>
+                The club isn't the best place to find a lover
+                So the bar is where I go
+                Me and my friends at the table doing shots
+                Drinking fast and then we talk slow
+                Come over and start up a conversation with just me
+                And trust me I'll give it a chance now
+                Take my hand, stop, put Van the Man on the jukebox
+                And then we start to dance, and now I'm singing like
+            </p>
+            <p>
+                Girl, you know I want your love
+                Your love was handmade for somebody like me
+                Come on now, follow my lead
+                I may be crazy, don't mind me
+                Say, boy, let's not talk too much
+                Grab on my waist and put that body on me
+                Come on now, follow my lead
+                Come, come on now, follow my lead
+  `
+};
+function createTemplate (data) {
+var title = data.title;
+var heading = data.heading;
+var content = data.content;
+var htmlTemplate = `
+<html>
+<head>
+    <title>
+       ${title}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="/ui/style.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="container">
+    <div>
+        <a href="/">Home</a>
+    </div>
+    <hr/>
+    <h3>
+    ${heading}
+    </h3>
+    <div>
+       ${content}
+           
+    </div>
+    </div>
+</body>
+</html>
+`;
+return htmlTemplate;
+}
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 app.get('/article-one',function(req, res){
-res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+res.send(createTemplate(articleOne));
 });
 
 app.get('/article-two',function(req, res){

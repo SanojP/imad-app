@@ -85,7 +85,7 @@ var htmlTemplate = `
 <html>
  
 <head>
-<link rel="shortcut icon" href="#" />
+
     <title>
        ${title}
     </title>

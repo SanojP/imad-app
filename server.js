@@ -83,8 +83,9 @@ var heading = data.heading;
 var content = data.content;
 var htmlTemplate = `
 <html>
- <link rel="shortcut icon" href="favicon.ico">
+ 
 <head>
+<link rel="shortcut icon" href="">
     <title>
        ${title}
     </title>

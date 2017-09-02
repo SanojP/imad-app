@@ -150,7 +150,7 @@ app,get('/submit-name/:name', function (req, res) {
     var name = req.params.name;
     
     names.push(name);
-    res.send(JSON.stringifly(names));
+    res.send(JSON.stringify(names));
 
 });
 var port = 80;
